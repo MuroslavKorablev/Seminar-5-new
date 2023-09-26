@@ -32,27 +32,29 @@ void PrintArray(int[] arr)
     }
 }
 
-void GetSums(int[] inArray)
+int[] GetSums(int[] inArray)
 {
-    int PositiveSum = 0;
-    int NegativeSum = 0;
+    int[] res = new int[2];
     foreach (int el in inArray)
     {
-        if (el > 0) PositiveSum += el;
-        else NegativeSum += el;
+        if (el > 0) res[0] += el;
+        else res[1] += el;
     }
-    Console.WriteLine($"Сумма положительных чисел равна {PositiveSum}, сумма отрицательных {NegativeSum}");
+    PrintArray(res);
+    return res;
 }
+
 
 int size = WorkWithUser("Введите размер массива: ");
 int minValue = WorkWithUser("Введите минимальное значение диапазона: ");
 int maxValue = WorkWithUser("Введите максимальное значение диапазона: ");
 int[] array = FillArray(size, minValue, maxValue);
 PrintArray(array);
-GetSums(array);
-
-
-
+System.Console.WriteLine();
+int[] sums = GetSums(array);
+// Console.WriteLine($"Сумма положительных чисел равна {sums[0]}, сумма отрицательных {sums[1]}");
+// int sumSums = sums[0] + sums[1];
+// System.Console.WriteLine(sumSums);
 
 ;
 // System.Console.WriteLine(string.Join(" ", size)); //Новая фитча Join просто имба
@@ -64,3 +66,5 @@ GetSums(array);
 //         System.Console.Write(collection[i] + " ");
 //     }
 // }
+
+
